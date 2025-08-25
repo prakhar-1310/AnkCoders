@@ -1,0 +1,66 @@
+Project Proposal: Numerology Analysis
+Software
+1. Introduction
+This document outlines the design, functionality, and implementation plan for a Numerology
+Analysis Software. The application will provide users with detailed numerological insights
+based on their name and date of birth, supporting the Pythagorean and Chaldean systems of
+numerology.
+2. Objectives
+● Develop a software system that computes core numerological numbers.
+● Provide personal year, month, and day cycles for users.
+● Enable name analysis, including vowel and consonant breakdowns.
+● Allow generation of personalized numerology reports.
+● Ensure an intuitive and user-friendly interface.
+3. Scope
+The software will include:
+● Calculation of Life Path, Expression, Soul Urge, Personality, Birthday, and Maturity
+numbers.
+● Personal cycles (Year, Month, Day).
+● Name breakdown with numerical mapping.
+● Compatibility analysis between two individuals.
+● PDF report export.
+Future expansions will support:
+● Multiple languages.
+● Non-Latin script handling through transliteration.
+● Premium subscription features.
+4. Numerology Systems
+4.1 Pythagorean
+Mapping of alphabets A–Z to numbers 1–9.
+4.2 Chaldean
+Mapping of alphabets with traditional rules (1–8, sometimes omitting 9).
+5. Core Calculations
+● Life Path: Derived from date of birth.
+● Expression Number: Based on full name.
+● Soul Urge Number: Derived from vowels in name.
+● Personality Number: Derived from consonants in name.
+● Maturity Number: Combination of Life Path and Expression.
+● Personal Cycles: Year, month, and day based on DOB and current date.
+6. System Design
+6.1 Input
+● Full name (birth certificate name).
+● Current name (optional).
+● Date of birth (YYYY-MM-DD).
+● System choice: Pythagorean or Chaldean.
+6.2 Output
+● Computed numerological numbers with reduction paths.
+● Letter breakdown with vowel/consonant distinction.
+● Personal cycles.
+● PDF report option.
+7. Technical Architecture
+● Backend: Python with FastAPI for computation and API.
+● Frontend: React/Next.js for user interface.
+● Database (optional): PostgreSQL for storing reports and user data.
+● PDF Generation: Server-side tools like WeasyPrint.
+8. Ethics & Compliance
+● The software is for self-reflection and entertainment purposes only.
+● Clear disclaimers will be provided.
+● User data privacy and consent will be prioritized (GDPR/DPDP compliance).
+9. Implementation Plan
+Week 1: Core numerology module and testing.
+Week 2: API development and basic frontend integration.
+Week 3: Personal cycles, letter breakdown, and PDF export.
+Week 4: Compatibility analysis, interpretation content, and UI polish.
+10. Conclusion
+This Numerology Analysis Software will combine ancient numerological principles with modern
+technology to provide users with meaningful insights in a structured, user-friendly way. Its
+modular design will allow for easy future expansion and customization.
