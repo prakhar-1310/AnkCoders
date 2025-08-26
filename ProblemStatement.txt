@@ -1,0 +1,17 @@
+Problem Statement 
+
+As a client, I need a user-friendly, offline numerology application that allows me to input basic details such as full name and date of birth to instantly generate core numerology numbers, including Life Path, Destiny/Expression, Soul Urge, Personality, and Birthday numbers.
+
+The application should provide:
+
+Clear explanations of each number in simple language.
+
+An option to save results as a report for personal use.
+
+A graphical user interface (GUI) for easy interaction, rather than a console-based interface.
+
+A stand-alone .exe file that works on Windows laptops without internet dependency or additional installation steps.
+
+The problem lies in the absence of a trustworthy, offline, and easy-to-use numerology tool. Most available solutions are either web-based, require constant internet access, or are difficult for non-technical users. I want a modern, portable application that works seamlessly offline and can be shared easily as an executable file.
+
+Because requirements may evolve (such as adding new numerology features, customization, or report export formats), the project will be developed using Agile methodologies, ensuring iterative delivery, continuous feedback, and gradual enhancement.
