@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Numerology Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Chaldean Numerology - Project Prototype</h2>
+    <form id="numerologyForm">
+      <label>First Name:</label>
+      <input type="text" id="firstName" required>
+
+      <label>Middle Name:</label>
+      <input type="text" id="middleName">
+
+      <label>Last Name:</label>
+      <input type="text" id="lastName" required>
+
+      <label>Date of Birth:</label>
+      <input type="date" id="dob" required>
+
+      <label>Gender:</label>
+      <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <button type="button" onclick="calculateNumerology()">Calculate</button>
+    </form>
+
+    <div class="result" id="result" style="display:none;">
+      <h3 id="nameResult"></h3>
+      <h3 id="dobResult"></h3>
+      <h3 id="moolankResult"></h3>
+      <h3 id="bhagyankResult"></h3>
+      <h3 id="destinyResult"></h3>
+
+      <h3>Lo Shu Grid:</h3>
+      <div id="loshuGrid" class="grid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
