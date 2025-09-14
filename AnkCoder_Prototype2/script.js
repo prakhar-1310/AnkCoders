@@ -16,71 +16,85 @@ function reduceToSingleDigit(num) {
   return num;
 }
 
-function calculateNumerology() {
-  let first = document.getElementById("firstName").value.toUpperCase();
-  let middle = document.getElementById("middleName").value.toUpperCase();
-  let last = document.getElementById("lastName").value.toUpperCase();
-  let dob = document.getElementById("dob").value;
-
-  // ---- Name Number ----
-  let fullName = (first + middle + last).replace(/[^A-Z]/g, "");
-  let nameSum = 0;
-  for (let ch of fullName) {
-    if (chaldeanMap[ch]) nameSum += chaldeanMap[ch];
-  }
-  let nameNumber = reduceToSingleDigit(nameSum);
-
-  // ---- DOB Digits ----
-  let dobDigits = dob.replace(/-/g, "").split("").map(Number);
-  let dobSum = dobDigits.reduce((a,b)=>a+b,0);
-  let dobNumber = reduceToSingleDigit(dobSum);
-
-  // ---- Moolank (Day only) ----
-  let day = parseInt(dob.split("-")[2]);
-  let moolank = reduceToSingleDigit(day);
-
-  // ---- Bhagyank (Destiny from full DOB) ----
-  let [year, month, date] = dob.split("-").map(Number);
-  let bhagyank = reduceToSingleDigit(year + month + date);
-
-  // ---- Destiny Number (Total DOB sum reduced) ----
-  let destiny = reduceToSingleDigit(dobSum);
-
-  // ---- Update Results ----
-  document.getElementById("nameResult").innerText = "Name Number: " + nameNumber;
-  document.getElementById("dobResult").innerText = "Luck Number: " + dobNumber;
-  document.getElementById("moolankResult").innerText = "Moolank (Birth Number): " + moolank;
-  document.getElementById("bhagyankResult").innerText = "Bhagyank (Destiny Number): " + bhagyank;
-  document.getElementById("destinyResult").innerText = "Destiny Number: " + destiny;
-
-  // ---- Lo Shu Grid ----
-  let allNumbers = [...dobDigits];
-  allNumbers.push(moolank, bhagyank, destiny);
-  generateLoShuGrid(allNumbers);
-
-  document.getElementById("result").style.display = "block";
-}
-
 function generateLoShuGrid(digits) {
-  // Standard Lo Shu placement: index positions for 3×3 grid
-  const loshuPattern = {
-    1: 7, 2: 2, 3: 3, 4: 1, 5: 4,
-    6: 8, 7: 5, 8: 6, 9: 0
-  };
-
+  const loshuPattern = {1:7, 2:2, 3:3, 4:1, 5:4, 6:8, 7:5, 8:6, 9:0};
   let grid = ["","","","","","","","",""];
   digits.forEach(d => {
-    if (d !== 0 && loshuPattern[d] !== undefined) {
+    if(d!==0 && loshuPattern[d]!==undefined){
       let pos = loshuPattern[d];
       grid[pos] += d;
     }
   });
-
   const gridContainer = document.getElementById("loshuGrid");
   gridContainer.innerHTML = "";
-  grid.forEach(val => {
+  grid.forEach(val=>{
     let cell = document.createElement("div");
     cell.innerText = val || "-";
     gridContainer.appendChild(cell);
   });
+}
+
+async function calculateNumerology() {
+  let first = document.getElementById("firstName").value;
+  let middle = document.getElementById("middleName").value;
+  let last = document.getElementById("lastName").value;
+  let dob = document.getElementById("dob").value;
+  let gender = document.getElementById("gender").value;
+  let mob = document.getElementById("mob").value;
+
+  if(!first || !last || !dob || !mob){
+    alert("Please fill all required fields!");
+    return;
+  }
+
+  // Uppercase for calculation
+  let firstUpper = first.toUpperCase();
+  let middleUpper = middle.toUpperCase();
+  let lastUpper = last.toUpperCase();
+
+  let fullName = (firstUpper + middleUpper + lastUpper).replace(/[^A-Z]/g,"");
+  let nameSum = 0;
+  for(let ch of fullName) if(chaldeanMap[ch]) nameSum += chaldeanMap[ch];
+  let nameNumber = reduceToSingleDigit(nameSum);
+
+  let dobDigits = dob.replace(/-/g,"").split("").map(Number);
+  let dobSum = dobDigits.reduce((a,b)=>a+b,0);
+  let dobNumber = reduceToSingleDigit(dobSum);
+
+  let day = parseInt(dob.split("-")[2]);
+  let moolank = reduceToSingleDigit(day);
+
+  let [year, month, date] = dob.split("-").map(Number);
+  let bhagyank = reduceToSingleDigit(year+month+date);
+
+  let destiny = reduceToSingleDigit(dobSum);
+
+  // Update results
+  document.getElementById("nameResult").innerText = "Name Number: "+nameNumber;
+  document.getElementById("dobResult").innerText = "Luck Number: "+dobNumber;
+  document.getElementById("moolankResult").innerText = "Moolank (Birth Number): "+moolank;
+  document.getElementById("bhagyankResult").innerText = "Bhagyank (Destiny Number): "+bhagyank;
+  document.getElementById("destinyResult").innerText = "Destiny Number: "+destiny;
+
+  generateLoShuGrid([...dobDigits, moolank, bhagyank, destiny]);
+  document.getElementById("result").style.display = "block";
+
+  // Save to backend
+  const userData = { firstName:first, middleName:middle, lastName:last, dob, gender, mob, nameNumber, dobNumber, moolank, bhagyank, destiny };
+
+  try{
+    const res = await fetch("http://localhost:3000/saveUser", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(userData)
+    });
+    const result = await res.json();
+    document.getElementById("statusMessage").style.color = "green";
+    document.getElementById("statusMessage").innerText = result.message;
+    console.log("Saved:", result);
+  } catch(err){
+    console.error(err);
+    document.getElementById("statusMessage").style.color = "red";
+    document.getElementById("statusMessage").innerText = "Failed to save user!";
+  }
 }

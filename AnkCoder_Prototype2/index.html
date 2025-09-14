@@ -8,7 +8,7 @@
 <body>
   <div class="container">
     <h2>Chaldean Numerology - Project Prototype</h2>
-    <form id="numerologyForm">
+    <form id="numerologyForm" onsubmit="event.preventDefault(); calculateNumerology();">
       <label>First Name:</label>
       <input type="text" id="firstName" required>
 
@@ -28,7 +28,10 @@
         <option value="other">Other</option>
       </select>
 
-      <button type="button" onclick="calculateNumerology()">Calculate</button>
+      <label for="mob">Contact No.</label>
+      <input type="number" id="mob" required>
+
+      <button type="submit">Calculate</button>
     </form>
 
     <div class="result" id="result" style="display:none;">
@@ -41,6 +44,9 @@
       <h3>Lo Shu Grid:</h3>
       <div id="loshuGrid" class="grid"></div>
     </div>
+
+    <!-- New status message -->
+    <div id="statusMessage"></div>
   </div>
 
   <script src="script.js"></script>
