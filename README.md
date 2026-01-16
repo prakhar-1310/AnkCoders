@@ -1,5 +1,10 @@
 # 🔢✨ Numerology Analyzer
 
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e328b69a-16ad-4e2b-822c-de8f198870e3" />
+
+
+
 ---
 
 ## 👨‍🏫 Faculty Guide
