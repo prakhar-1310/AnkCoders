@@ -1,9 +1,9 @@
-# 🔢✨ Numerology Analyzer — *Chaldean Method*
+# 🔢✨ Numerology Analyzer
 
 ---
 
 ## 👨‍🏫 Faculty Guide
-This project has been developed under the guidance of **Mr. Nikhil Govil Sir**, whose continuous mentorship and valuable suggestions shaped our design and implementation strategy.
+This project has been developed under the guidance of **Mr. Nikhel Govil Sir**, whose continuous mentorship and valuable suggestions shaped our design and implementation strategy.
 
 ---
 
@@ -12,11 +12,10 @@ This project has been developed under the guidance of **Mr. Nikhil Govil Sir**, 
 | Name | Role(s) | Responsibilities |
 |------|----------|------------------|
 | **Neelmani Pandey** | *Product Owner & Coder* | Managed product backlog and priorities, oversaw sprint planning and coordination, assisted in feature implementation |
-| **Priyanshu Goyal** | *Lead Developer & Analyst* | Designed and developed the entire software architecture; integrated UI, backend, and numerology modules; ensured feature completeness, testing, and polish |
-| **Prakhar Shahi** | *Tester & Analyst* | Conducted integration testing, created user stories with acceptance criteria, assisted in documentation |
-| **Namit Jain** | *Tester & Analyst* | Tested all functional modules, reported bugs and verified fixes, ensured accuracy of numerology calculations |
-| **Durgesh Kumar Gupta** | *Tester* | Executed test cases and UI validation, ensured consistency across modules |
-| **Nikhil Chahar** | *Tester* | Performed regression testing, assisted in final validation |
+| **Prakhar Shahi** | *Lead Developer & Analyst* | Designed and developed the entire software architecture; integrated UI, backend, and numerology modules; ensured feature completeness, testing, and polish |
+| **Priyanshu Goyal** | *Developer & Analyst* | Conducted integration testing, created user stories with acceptance criteria, assisted in documentation |
+| **Namit Jain** | *Scrum Master* | Facilitated Scrum ceremonies, coordinated between development and QA teams, removed impediments, ensured Agile best practices, and supported accurate delivery of numerology features |
+
 
 > Our team followed **Agile practices**, emphasizing teamwork, iterative improvements, and adaptability.
 
@@ -29,25 +28,7 @@ This project has been developed under the guidance of **Mr. Nikhil Govil Sir**, 
 **Libraries Used:** NumPy, Pandas, Joblib  
 **Optional Integration:** Flask (for web deployment)  
 **Version Control:** Git & GitHub  
-**IDE:** Visual Studio Code  
-
----
-
-
-## 📁 Project Structure
-NumerologyAnalyzer/
-│
-├── core/
-│ ├── chaldean_mapping.py # Letter-to-number mapping logic
-│ ├── interpretations.py # Meaning and interpretation of numbers
-│ ├── loshu.py # Loshu Grid generation
-│ ├── numerology_calculations.py # Core numerology logic (Mulank, Bhagyank, etc.)
-│ ├── pdf_report.py # PDF export functionality
-│
-├── ui.py # GUI layout & user interaction
-├── main.py # Main entry point
-├── NumerologyAnalyzer.spec # Build config for EXE
-└── requirements.txt # Dependencies
+**IDE:** Visual Studio Code 
 
 ---
 
