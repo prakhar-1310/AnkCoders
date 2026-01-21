@@ -17,7 +17,7 @@ This project has been developed under the guidance of **Mr. Nikhel Govil Sir**, 
 | Name | Role(s) | Responsibilities |
 |------|----------|------------------|
 | **Neelmani Pandey** | *Product Owner* | Managed product backlog and priorities, oversaw sprint planning and coordination |
-| **Prakhar Shahi** | *Lead Developer & Analyst* | Designed the overall software architecture, led end-to-end development, integrated UI, backend, and numerology modules, reviewed code quality, and ensured feature completeness and production readiness |
+| **Prakhar Shahi** | *Developer & Analyst* | Designed the overall software architecture, led end-to-end development, integrated UI, backend, and numerology modules, reviewed code quality, and ensured feature completeness and production readiness |
 | **Priyanshu Goyal** | *Developer & Analyst* | Implemented application features, supported integration efforts, analyzed requirements, created user stories with acceptance criteria, and contributed to technical and project documentation |
 | **Namit Jain** | *Scrum Master* | Facilitated Scrum ceremonies, coordinated between development and QA teams, removed impediments, ensured Agile best practices, and supported accurate delivery of numerology features |
 
